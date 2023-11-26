@@ -5,7 +5,7 @@ import firebase from "./services/Firebase.js";
 import { setHeaders } from "./middlewares.js";
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 // load firebase database
 const db = firebase?.db;
 // for parsing application/json
@@ -16,7 +16,7 @@ app.use(setHeaders);
 app.use(express.static("public"));
 
 //Load all routes
-loadRoutes(v1Routes, (path, route) => app.use("/candleLight/api" + path, route));
+loadRoutes(v1Routes, (path, route) => app.use("/candleLight_api" + path, route));
 
 //Wrong Route
 app.use("/", async (req, res) => {
