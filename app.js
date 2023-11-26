@@ -16,7 +16,7 @@ app.use(setHeaders);
 app.use(express.static("public"));
 
 //Load all routes
-loadRoutes(v1Routes, (path, route) => app.use("/api" + path, route));
+loadRoutes(v1Routes, (path, route) => app.use("/candleLight/api" + path, route));
 
 //Wrong Route
 app.use("/", async (req, res) => {
