@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 5000;
 // load firebase database
 const db = firebase?.db;
 // for parsing application/json
+
 app.use(express.json());
 // for parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
