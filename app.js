@@ -17,13 +17,14 @@ app.use(setHeaders);
 app.use(express.static("public"));
 
 //Load all routes
-loadRoutes(v1Routes, (path, route) => app.use("/candleLight_api" + path, route));
+loadRoutes(v1Routes, (path, route) =>
+  app.use("/candleLight_api" + path, route)
+);
 
 //Wrong Route
 app.use("/", async (req, res) => {
   res.send("<p> 404 not found !</p>" + PORT);
 });
-
 app.listen(PORT, () => {
   console.log(process.env.PORT);
   console.log(`Server is running on port ${PORT}`);
