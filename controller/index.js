@@ -73,6 +73,20 @@ export const updateDocById = async (req, res) => {
   }
 };
 
+export const testFunc = async (req, res) => {
+  try {
+    res.send({
+      msg: "User Tested.",
+      code: 200,
+    });
+    res.end();
+  } catch (e) {
+    console.log(e.message);
+    res.sendStatus(500);
+    res.end();
+  }
+};
+
 // Function to generate a random 6-digit code
 const generateOTP = () => {
   // Generate a random number between 100000 and 999999

@@ -3,6 +3,7 @@ import { loadRoutes } from "./services/index.js";
 import { v1Routes } from "./v1RoutesPath/index.js";
 import firebase from "./services/Firebase.js";
 import { setHeaders } from "./middlewares.js";
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,7 +16,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(setHeaders);
 app.use(express.static("public"));
-
+app.use(cors({
+  origin: 'http://72.167.135.62:5000',
+  optionsSuccessStatus: 200,
+}))
 //Load all routes
 loadRoutes(v1Routes, (path, route) =>
   app.use("/candleLight_api" + path, route)

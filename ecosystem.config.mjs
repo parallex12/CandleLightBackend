@@ -6,7 +6,7 @@ const app = appModule.default;
 export default {
   apps: [
     {
-      name: 'swiftlane-backend',
+      name: 'swiftlane-backend-api',
       script: (async () => {
         const port = app.get('port'); // Adjust this based on how your app sets the port.
 
