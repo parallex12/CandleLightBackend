@@ -16,10 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(setHeaders);
 app.use(express.static("public"));
-app.use(cors({
-  origin: 'http://72.167.135.62:5000',
-  optionsSuccessStatus: 200,
-}))
+
 //Load all routes
 loadRoutes(v1Routes, (path, route) =>
   app.use("/candleLight_api" + path, route)
@@ -27,8 +24,9 @@ loadRoutes(v1Routes, (path, route) =>
 
 //Wrong Route
 app.use("/", async (req, res) => {
-  res.send("<p> 404 not found !</p>" + PORT);
+  res.send("<p>s 404 not found !</p>" + PORT);
 });
+
 app.listen(PORT, () => {
   console.log(process.env.PORT);
   console.log(`Server is running on port ${PORT}`);
